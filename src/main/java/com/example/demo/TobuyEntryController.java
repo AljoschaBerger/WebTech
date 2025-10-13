@@ -10,7 +10,6 @@ public class TobuyEntryController {
 
     @GetMapping("/tobuys")
     public List<TobuyEntry> getTobuyEntries() {
-        return List.of(new TobuyEntry("M1"), new TobuyEntry("M2"), new TobuyEntry("M3"));
+        return List.of(new TobuyEntry(1, "M1"), new TobuyEntry(2, "M2"), new TobuyEntry(3, "M3"));
     }
-
 }
