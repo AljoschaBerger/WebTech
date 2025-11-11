@@ -22,18 +22,26 @@ public class TobuyEntry {
     public long getId() {
         return id;
     }
+    public void setId(long id) { this.id = id; }
 
     public String getName() {
         return name;
     }
 
     public boolean isPurchased() {
-
         return purchased;
+    }
+    public void setPurchased(boolean purchased) {
+        this.purchased = purchased;
+        this.lastUsedAt = Instant.now();
     }
 
     public boolean isFavorite() {
         return favorite;
+    }
+    public void setFavorite(boolean favorite) {
+        this.favorite = favorite;
+        this.lastUsedAt = Instant.now();
     }
 
     public Instant getLastUsedAt() {
