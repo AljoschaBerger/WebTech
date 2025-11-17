@@ -1,31 +1,40 @@
 package com.example.demo;
 
+import jakarta.persistence.*;
 import java.time.Instant;
 
+@Entity
 public class TobuyEntry {
-    private long id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String name;
     private boolean purchased;
     private boolean favorite;
     private Instant lastUsedAt;
 
     public TobuyEntry() {
-
+        this.lastUsedAt = Instant.now();
     }
 
-    public TobuyEntry(long id, String name) {
-        this.id = id;
+    public TobuyEntry(String name) {
         this.name = name;
         this.lastUsedAt = Instant.now();
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
-    public void setId(long id) { this.id = id; }
+    public void setId(Long id) { this.id = id; }
 
     public String getName() {
         return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+        this.lastUsedAt = Instant.now();
     }
 
     public boolean isPurchased() {
@@ -47,18 +56,5 @@ public class TobuyEntry {
     public Instant getLastUsedAt() {
         return lastUsedAt;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void togglePurchased() {
-        this.purchased = !this.purchased;
-        this.lastUsedAt = Instant.now();
-    }
-
-    public void toggleFavorite() {
-        this.favorite = !this.favorite;
-        this.lastUsedAt = Instant.now();
-    }
 }
+

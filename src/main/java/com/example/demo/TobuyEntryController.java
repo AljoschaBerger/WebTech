@@ -1,15 +1,33 @@
 package com.example.demo;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/entries")
 public class TobuyEntryController {
 
-    @GetMapping("/tobuys")
-    public List<TobuyEntry> getTobuyEntries() {
-        return List.of(new TobuyEntry(1, "M1"), new TobuyEntry(2, "M2"), new TobuyEntry(3, "M3"));
+    private final TobuyEntryRepository repository;
+
+    public TobuyEntryController(TobuyEntryRepository repository) {
+        this.repository = repository;
+    }
+
+    @GetMapping
+    public List<TobuyEntry> getEntries() {
+        return repository.findAll();
+    }
+
+    @PostMapping
+    public TobuyEntry createEntry(@RequestBody TobuyEntry entry) {
+        return repository.save(entry);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteEntry(@PathVariable Long id) {
+        repository.deleteById(id);
     }
 }
+
+
+
