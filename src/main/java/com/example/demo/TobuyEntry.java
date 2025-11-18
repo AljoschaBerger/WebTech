@@ -17,10 +17,14 @@ public class TobuyEntry {
 
     public TobuyEntry() {
         this.lastUsedAt = Instant.now();
+        this.purchased = false;
+        this.favorite = false;
     }
 
     public TobuyEntry(String name) {
         this.name = name;
+        this.purchased = false;
+        this.favorite = false;
         this.lastUsedAt = Instant.now();
     }
 
@@ -56,5 +60,18 @@ public class TobuyEntry {
     public Instant getLastUsedAt() {
         return lastUsedAt;
     }
+
+    // 🔥 M4: Toggle purchased
+    public void togglePurchased() {
+        this.purchased = !this.purchased;
+        this.lastUsedAt = Instant.now();
+    }
+
+    // 🔥 M4: Toggle favorite
+    public void toggleFavorite() {
+        this.favorite = !this.favorite;
+        this.lastUsedAt = Instant.now();
+    }
 }
+
 
