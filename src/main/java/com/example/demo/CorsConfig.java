@@ -6,6 +6,8 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
+// CORS fix deployment
+
 public class CorsConfig {
 
     @Bean
@@ -21,4 +23,7 @@ public class CorsConfig {
         };
     }
 }
+
+// redeploy trigger
+
 
