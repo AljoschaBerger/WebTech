@@ -6,8 +6,6 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-// CORS fix deployment
-
 public class CorsConfig {
 
     @Bean
@@ -16,13 +14,17 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("*")
+                        .allowedOriginPatterns("*")
                         .allowedMethods("*")
-                        .allowedHeaders("*");
+                        .allowedHeaders("*")
+                        .exposedHeaders("*")
+                        .allowCredentials(false)
+                        .maxAge(3600);
             }
         };
     }
 }
+
 
 // redeploy trigger
 
