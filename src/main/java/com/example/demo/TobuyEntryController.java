@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/entries")
+@RequestMapping("/tobuys")
 @CrossOrigin(origins = "*") // wenn CORSConfig schon existiert, kannst du diese Zeile auch weglassen
 public class TobuyEntryController {
 
@@ -13,6 +13,7 @@ public class TobuyEntryController {
     public TobuyEntryController(TobuyEntryRepository repository) {
         this.repository = repository;
     }
+
 
     // Alle Einträge holen
     @GetMapping
