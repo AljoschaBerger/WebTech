@@ -13,6 +13,13 @@ out/
 .gradle/
 build/
 !gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+### Logs ###
+*.log
+
+### Spring Boot ###
+target/
 
 ### Packaging ###
 *.jar
@@ -24,4 +31,9 @@ build/
 
 ### J2ME ###
 .mtj.tmp/
+
+### Mac / Windows ###
+.DS_Store
+Thumbs.db
+
 
