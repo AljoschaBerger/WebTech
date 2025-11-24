@@ -13,3 +13,4 @@ public class TobuyEntryController {
         return List.of(new TobuyEntry(1, "M1"), new TobuyEntry(2, "M2"), new TobuyEntry(3, "M3"));
     }
 }
+
