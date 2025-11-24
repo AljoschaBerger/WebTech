@@ -16,6 +16,7 @@ public class TobuyEntryController {
 
 
     // Alle Einträge holen
+    @CrossOrigin
     @GetMapping
     public List<TobuyEntry> getEntries() {
         return repository.findAll();
