@@ -15,6 +15,7 @@ public class TobuyEntry {
     private boolean favorite;
     private Instant lastUsedAt;
 
+
     public TobuyEntry() {
         this.lastUsedAt = Instant.now();
         this.purchased = false;

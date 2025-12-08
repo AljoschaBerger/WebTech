@@ -1,12 +1,17 @@
 package com.example.demo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-@RestController
 @RequestMapping("/tobuys")
 @CrossOrigin(origins = "*") // wenn CORSConfig schon existiert, kannst du diese Zeile auch weglassen
+
+@RestController
 public class TobuyEntryController {
+
+    @Autowired
+    ToBuyEntryService toBuyEntryService;
 
     private final TobuyEntryRepository repository;
 
@@ -17,13 +22,13 @@ public class TobuyEntryController {
 
     // Alle Einträge holen
     @CrossOrigin
-    @GetMapping
-    public List<TobuyEntry> getEntries() {
-        return repository.findAll();
+    @GetMapping("/toBuyEntry/{id}")
+    public TobuyEntry createTobuyEntry(@RequestBody TobuyEntry tobuyEntry) {
+        return toBuyEntryService.save(tobuyEntry);
     }
 
     // Neuen Eintrag anlegen
-    @PostMapping
+    @PostMapping("/toBuyEntry")
     public TobuyEntry createEntry(@RequestBody TobuyEntry entry) {
         return repository.save(entry);
     }
