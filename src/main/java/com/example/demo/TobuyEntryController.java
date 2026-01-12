@@ -22,9 +22,20 @@ public class TobuyEntryController {
 
     // Alle Einträge holen
     @CrossOrigin
+    @GetMapping
+    public List<TobuyEntry> getAllTobuys() {
+        return repository.findAll();
+    }
+
     @GetMapping("/toBuyEntry/{id}")
-    public TobuyEntry createTobuyEntry(@RequestBody TobuyEntry tobuyEntry) {
-        return toBuyEntryService.save(tobuyEntry);
+    public TobuyEntry getTobuyEntry(@PathVariable Long id) {
+        return repository.findById(id).get();
+    }
+
+    // ✅ NEU: nur Favoriten holen
+    @GetMapping("/favorites")
+    public List<TobuyEntry> getFavoriteTobuys() {
+        return repository.findByFavoriteTrue();
     }
 
     // Neuen Eintrag anlegen
