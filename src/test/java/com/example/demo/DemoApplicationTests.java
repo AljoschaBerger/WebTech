@@ -4,12 +4,11 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@Disabled
+@Disabled("Wird durch TobuyEntryIntegrationTest ersetzt")
 @SpringBootTest
 class DemoApplicationTests {
 
 	@Test
-	void contextLoads() {
-	}
-
+	void contextLoads() {}
 }
+

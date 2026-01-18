@@ -7,6 +7,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class ToBuyEntryServiceTest {
@@ -25,5 +26,15 @@ class ToBuyEntryServiceTest {
 
         verify(repository).save(entry);
     }
+
+    @Test
+    void save_isCalledExactlyOnce() {
+        TobuyEntry entry = new TobuyEntry("Milk");
+
+        service.save(entry);
+
+        verify(repository).save(entry);
+    }
+
 }
 
